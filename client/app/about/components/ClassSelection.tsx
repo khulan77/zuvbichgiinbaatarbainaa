@@ -28,7 +28,7 @@ const classes = [
   {
     id: 3,
     grade: "3-р анги",
-    desc: "Цээж бичгийн дүрмүүдийг гүнзгийрүүлэн сурна.",
+    desc: "",
     students: "620",
     avgPerformance: 92,
     color: "#6BCB77",
@@ -38,7 +38,7 @@ const classes = [
   {
     id: 4,
     grade: "4-р анги",
-    desc: "Эх болон найруулал бичих чадвараа хөгжүүлнэ.",
+    desc: "",
     students: "430",
     avgPerformance: 74,
     color: "#FFD93D",
@@ -48,7 +48,7 @@ const classes = [
   {
     id: 5,
     grade: "5-р анги",
-    desc: "Үндэсний бичиг болон зөв бичих дүрмийн баатар болно.",
+    desc: "",
     students: "310",
     avgPerformance: 88,
     color: "#9254DE",
@@ -103,12 +103,9 @@ const ClassSelectionFinal = () => {
             </h2>
           </div>
 
-          <div className="max-w-xs md:text-right">
-            <p className="text-gray-400 font-bold text-sm md:text-base leading-relaxed italic">
-              Өөрийн түвшинд тохирсон ангиа сонгож, цээж бичгийн
-              <span className="text-[#5D3191] border-b-2 border-[#8DC63F]/40 ml-1 font-black">
-                Баатар
-              </span>{" "}
+          <div className="max-w-xs">
+            <p className="text-gray-400 font-bold text-sm md:text-base">
+              Өөрийн түвшинд тохирсон ангиа сонгож, цээж бичгийн Баатар
               болоорой!
             </p>
           </div>
@@ -153,7 +150,7 @@ const ClassSelectionFinal = () => {
                   <motion.div
                     onMouseEnter={() => setHoveredId(item.id)}
                     onMouseLeave={() => setHoveredId(null)}
-                    onClick={() => setSelectedId(item.id)} // Арал дээр дарахад Popover нээгдэнэ
+                    onClick={() => setSelectedId(item.id)}
                     whileHover={{
                       scale: 1.15,
                       rotate: isEven ? 5 : -5,
@@ -214,21 +211,6 @@ const ClassSelectionFinal = () => {
                     <p className="text-gray-400 font-bold text-lg max-w-sm leading-snug">
                       {item.desc}
                     </p>
-                  </div>
-
-                  <div className="flex flex-wrap items-center gap-3">
-                    <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-2xl border border-gray-100 shadow-sm">
-                      <Users className="w-4 h-4 text-purple-200" />
-                      <span className="font-black text-xs uppercase tracking-tight text-gray-400">
-                        {item.students} Баатар
-                      </span>
-                    </div>
-                    <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-2xl border border-gray-100 shadow-sm">
-                      <Activity className="w-4 h-4 text-[#8DC63F]/50" />
-                      <span className="font-black text-xs uppercase tracking-tight text-gray-400">
-                        {item.avgPerformance}% Амжилт
-                      </span>
-                    </div>
                   </div>
 
                   <motion.button

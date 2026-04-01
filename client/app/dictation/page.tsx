@@ -24,16 +24,9 @@ export default function DictationPage() {
 
   return (
     <div className="min-h-screen bg-[#F1F4FF] flex flex-col items-center  font-sans relative overflow-hidden py-32">
-      {/* Subtle background decoration */}
       <div className="absolute inset-0 bg-[radial-gradient(at_50%_30%,rgba(93,49,145,0.08)_0%,transparent_50%)]" />
-
-      {/* Main Stage - илүү гоё, илүү гүнзгийрүүлсэн */}
       <main className="w-full max-w-6xl flex-1 bg-white rounded-[60px] shadow-[0_50px_120px_-30px_rgba(93,49,145,0.18)] border-[12px] border-white flex flex-col relative z-10 overflow-hidden">
-        
-        {/* Soft top glow + subtle pattern */}
         <div className="pointer-events-none absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-purple-100/60 via-transparent to-transparent" />
-
-        {/* Title Area - илүү цэвэрхэн */}
         <div className="relative px-8 md:px-12 py-10 flex flex-col gap-6 md:flex-row md:items-center md:justify-between border-b border-slate-100">
           <div className="flex items-center gap-5">
             <button
@@ -71,26 +64,27 @@ export default function DictationPage() {
               <Volume2 size={26} className="text-white" />
             </div>
             <div>
-              <p className="text-xs text-white/80 font-black tracking-widest">АУДИО</p>
-              <span className="font-black text-white text-xl tracking-tight">Сонсох</span>
+              <p className="text-xs text-white/80 font-black tracking-widest">
+                АУДИО
+              </p>
+              <span className="font-black text-white text-xl tracking-tight">
+                Сонсох
+              </span>
             </div>
           </motion.button>
         </div>
 
-        {/* Content Area */}
         <div className="flex flex-1 min-h-[520px]">
-          {/* Right: Input Area */}
           <div className="flex-1  md:p-12 lg:p-16 flex flex-col bg-gradient-to-br from-slate-50/70 to-white relative">
-            
-            {/* Decorative top badges */}
             <div className="flex flex-wrap gap-3 mb-8">
               <div className="inline-flex items-center gap-2 bg-white px-5 py-2.5 rounded-3xl border border-purple-100 shadow-sm">
                 <PenLine size={18} className="text-[#5D3191]" />
-                <span className="text-sm font-black text-[#5D3191] tracking-wide">Бичих хэсэг</span>
+                <span className="text-sm font-black text-[#5D3191] tracking-wide">
+                  Бичих хэсэг
+                </span>
               </div>
             </div>
 
-            {/* Бичих хэсэг (чиний хүссэнээр хэвээр үлдээв) */}
             <AnimatePresence mode="wait">
               {!isCameraMode ? (
                 <motion.div
@@ -102,15 +96,14 @@ export default function DictationPage() {
                 >
                   <div className="relative flex-1 group">
                     <div className="absolute -inset-2 rounded-[44px] bg-gradient-to-br from-purple-200 via-sky-100 to-amber-100 opacity-60 blur-xl group-hover:opacity-80 transition-all duration-500" />
-                    
+
                     <div className="relative w-full h-full min-h-[360px] rounded-[40px] overflow-hidden border-4 border-white shadow-2xl bg-white">
-                      {/* Шугамууд + улаан зураас */}
-                      <div 
-                        className="absolute inset-0 pointer-events-none opacity-40" 
+                      <div
+                        className="absolute inset-0 pointer-events-none opacity-40"
                         style={{
                           backgroundImage: `linear-gradient(#CBD5E1 1px, transparent 1px)`,
-                          backgroundSize: '100% 42px',
-                          backgroundPosition: '0 14px'
+                          backgroundSize: "100% 42px",
+                          backgroundPosition: "0 14px",
                         }}
                       />
                       <div className="absolute left-12 top-0 bottom-0 w-[2px] bg-red-300/40 pointer-events-none" />
@@ -120,19 +113,21 @@ export default function DictationPage() {
                         onChange={(e) => setUserInput(e.target.value)}
                         placeholder="Энд бичээрэй..."
                         className="relative w-full h-full p-10 pl-16 bg-transparent text-2xl font-semibold text-slate-700 focus:outline-none resize-none placeholder:text-slate-300 leading-[42px] z-10"
-                        style={{ lineHeight: '42px' }}
+                        style={{ lineHeight: "42px" }}
                       />
                     </div>
 
                     {/* Floating hint */}
                     <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 bg-white px-6 py-2 rounded-2xl shadow-md border border-purple-100 flex items-center gap-2 z-20">
                       <Sparkles size={16} className="text-amber-400" />
-                      <span className="text-xs font-black text-purple-500 tracking-widest">Энд бичнэ үү ✨</span>
+                      <span className="text-xs font-black text-purple-500 tracking-widest">
+                        Энд бичнэ үү ✨
+                      </span>
                     </div>
                   </div>
                 </motion.div>
               ) : (
-                /* Camera mode - мөн илүү гоё болгосон */
+     
                 <motion.div
                   key="cam"
                   initial={{ opacity: 0, scale: 0.95 }}
@@ -144,8 +139,12 @@ export default function DictationPage() {
                   <div className="w-32 h-32 rounded-full bg-white/10 flex items-center justify-center border-4 border-white/20 relative z-10">
                     <Camera size={52} className="text-white/80" />
                   </div>
-                  <p className="text-white text-lg font-semibold mt-8 tracking-wide">Цаасан бичвэр уншуулах</p>
-                  <p className="text-white/60 text-sm mt-2">Камераа тогтвортой бариарай</p>
+                  <p className="text-white text-lg font-semibold mt-8 tracking-wide">
+                    Цаасан бичвэр уншуулах
+                  </p>
+                  <p className="text-white/60 text-sm mt-2">
+                    Камераа тогтвортой бариарай
+                  </p>
                 </motion.div>
               )}
             </AnimatePresence>
@@ -157,8 +156,8 @@ export default function DictationPage() {
                 whileTap={{ scale: 0.97 }}
                 onClick={() => setIsCameraMode(!isCameraMode)}
                 className={`flex-1 py-6 rounded-3xl font-black text-base flex items-center justify-center gap-3 transition-all border-2 shadow-sm ${
-                  isCameraMode 
-                    ? "bg-white border-slate-200 text-slate-500" 
+                  isCameraMode
+                    ? "bg-white border-slate-200 text-slate-500"
                     : "bg-white border-purple-200 text-[#5D3191] hover:border-purple-300"
                 }`}
               >
@@ -182,9 +181,12 @@ export default function DictationPage() {
                 <Lightbulb size={26} className="text-amber-500" />
               </div>
               <div>
-                <p className="font-black text-amber-600 text-xs tracking-[0.12em] uppercase">ЗӨВЛӨГӨӨ</p>
+                <p className="font-black text-amber-600 text-xs tracking-[0.12em] uppercase">
+                  ЗӨВЛӨГӨӨ
+                </p>
                 <p className="text-amber-900 text-[15px] leading-tight mt-1 font-medium">
-                  Алдаатай үг дээрээ дарж үсгийн тоглоомоор зөв бичих дүрмээ бататгаарай. Зөв байрлуулсан үсэг ногоон болж харагдана.
+                  Алдаатай үг дээрээ дарж үсгийн тоглоомоор зөв бичих дүрмээ
+                  бататгаарай. Зөв байрлуулсан үсэг ногоон болж харагдана.
                 </p>
               </div>
             </div>
@@ -194,10 +196,20 @@ export default function DictationPage() {
 
       <style jsx global>{`
         @keyframes scan {
-          0% { top: 0%; opacity: 0; }
-          25% { opacity: 1; }
-          75% { opacity: 1; }
-          100% { top: 100%; opacity: 0; }
+          0% {
+            top: 0%;
+            opacity: 0;
+          }
+          25% {
+            opacity: 1;
+          }
+          75% {
+            opacity: 1;
+          }
+          100% {
+            top: 100%;
+            opacity: 0;
+          }
         }
         .animate-scan {
           animation: scan 3.5s ease-in-out infinite;
